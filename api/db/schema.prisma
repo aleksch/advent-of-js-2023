@@ -1,0 +1,101 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("TEST_DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+model User {
+  id             Int          @id @default(autoincrement())
+  email          String       @unique
+  password       String
+  firstName      String?
+  lastName       String?
+  avatar         String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  role           Role         @default(USER)
+  UserStatus     UserStatus[]
+  WishList       WishList[]
+  santa          Pairings[]   @relation("Santa")
+  person         Pairings[]   @relation("Person")
+  thankYouAuthor ThankYou[]   @relation("UserThankYou")
+  thankYouToUser ThankYou[]   @relation("ToUserThankYou")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Event {
+  id           String       @id @default(uuid())
+  name         String
+  date         DateTime
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  sendReminder Boolean
+  userStatus   UserStatus[]
+  wishList     WishList[]
+  pairings     Pairings[]
+  thankYou     ThankYou[]
+}
+
+model UserStatus {
+  id      Int    @id @default(autoincrement())
+  event   Event  @relation(fields: [eventId], references: [id])
+  eventId String
+  user    User   @relation(fields: [userId], references: [id])
+  userId  Int
+  status  Status
+}
+
+enum Status {
+  INVITED
+  DECLINED
+  ACCEPTED
+}
+
+model WishList {
+  id              Int      @id @default(autoincrement())
+  name            String
+  url             String
+  user            User     @relation(fields: [userId], references: [id])
+  userId          Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  order           Int
+  event           Event    @relation(fields: [eventId], references: [id])
+  eventId         String
+  siteImage       String?
+  siteTitle       String?
+  siteDescription String?
+}
+
+model Pairings {
+  id        Int      @id @default(autoincrement())
+  event     Event    @relation(fields: [eventId], references: [id])
+  eventId   String
+  santa     User     @relation("Santa", fields: [santaId], references: [id])
+  santaId   Int
+  person    User     @relation("Person", fields: [personId], references: [id])
+  personId  Int
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ThankYou {
+  id        Int      @id @default(autoincrement())
+  event     Event    @relation(fields: [eventId], references: [id])
+  eventId   String
+  user      User     @relation("UserThankYou", fields: [userId], references: [id])
+  userId    Int
+  toUser    User     @relation("ToUserThankYou", fields: [toUserId], references: [id])
+  toUserId  Int
+  message   String
+  createdAt DateTime @default(now())
+}
