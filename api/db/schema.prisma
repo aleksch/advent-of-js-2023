@@ -9,21 +9,35 @@ generator client {
 }
 
 model User {
-  id             Int          @id @default(autoincrement())
-  email          String       @unique
-  password       String
-  firstName      String?
-  lastName       String?
-  avatar         String?
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
-  role           Role         @default(USER)
-  UserStatus     UserStatus[]
-  WishList       WishList[]
-  santa          Pairings[]   @relation("Santa")
-  person         Pairings[]   @relation("Person")
-  thankYouAuthor ThankYou[]   @relation("UserThankYou")
-  thankYouToUser ThankYou[]   @relation("ToUserThankYou")
+  id                  Int              @id @default(autoincrement())
+  email               String           @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  webAuthnChallenge   String?          @unique
+  credentials         UserCredential[]
+  firstName           String?
+  lastName            String?
+  avatar              String?
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+  role                Role             @default(USER)
+  UserStatus          UserStatus[]
+  WishList            WishList[]
+  santa               Pairings[]       @relation("Santa")
+  person              Pairings[]       @relation("Person")
+  thankYouAuthor      ThankYou[]       @relation("UserThankYou")
+  thankYouToUser      ThankYou[]       @relation("ToUserThankYou")
+}
+
+model UserCredential {
+  id         String  @id
+  userId     Int
+  user       User    @relation(fields: [userId], references: [id])
+  publicKey  Bytes
+  transports String?
+  counter    BigInt
 }
 
 enum Role {
