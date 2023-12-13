@@ -1,0 +1,33 @@
+.secret-text {
+  color: #FE9EBF;
+  text-align: center;
+  font-family: Agbalumo;
+  font-size: 159.022px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 124.418px; /* 78.24% */
+  letter-spacing: -4.771px;
+  text-shadow:
+    -5px -5px 0 #000,
+     0   -5px 0 #000,
+     5px -5px 0 #000,
+     5px  0   0 #000,
+     5px  5px 0 #000,
+     0    5px 0 #000,
+    -5px  5px 0 #000,
+    -5px  0   0 #000;
+}
+
+.santa-text {
+  color: #FD4801;
+  font-family: Agbalumo;
+  font-size: 159.022px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 124.418px;
+  letter-spacing: -4.771px;
+  paint-order: stroke fill;
+  fill: black;
+  stroke: red;
+  stroke-width: 4px;
+}
