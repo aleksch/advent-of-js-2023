@@ -8,7 +8,7 @@ type AuthLayoutProps = {
 const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-8 bg-[url(img/auth-background.svg)] bg-no-repeat pt-12">
+      <div className="flex flex-col items-center justify-center gap-8 bg-[url(/img/auth-background.svg)] bg-no-repeat pt-12">
         <div className="h-[350px] w-[660px]">
           <Title />
         </div>

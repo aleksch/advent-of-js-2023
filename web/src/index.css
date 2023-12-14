@@ -1,10 +1,4 @@
-
-@font-face {
-  font-family: 'Agbalumo';
-  /* 👇 it's a relative path */
-  src: url('fonts/Agbalumo-Regular.ttf');
-  /* font-weight: 400; */
-}
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Bebas+Neue&family=Inter:wght@400;500;700&family=Kalam:wght@700&display=swap');
 /**
  * START --- SETUP TAILWINDCSS EDIT
  *
@@ -20,5 +14,5 @@
  */
 
 body {
-  background-color: theme(colors.silver-tree)
+  background-color: theme(colors.silverTree)
 }
