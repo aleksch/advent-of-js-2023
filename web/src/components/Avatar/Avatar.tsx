@@ -23,7 +23,7 @@ const Avatar = ({ userName, imgUrl, status, icon, withSantaHat }: Props) => {
       return <img className="object-cover" src={imgUrl} alt="avatar" />
     }
     return (
-      <span className="text-3xl text-white">
+      <span className="text-2xl font-bold text-white">
         {userName[0].toLocaleUpperCase()}
       </span>
     )
@@ -35,7 +35,7 @@ const Avatar = ({ userName, imgUrl, status, icon, withSantaHat }: Props) => {
     <div className="relative inline-block">
       {withSantaHat && <SantaHat />}
       <div
-        className={`border-avatar relative flex h-18 w-18 items-center justify-center overflow-hidden rounded-full border-solid ${borderColorClass} bg-spanishGreen`}
+        className={`center relative h-18 w-18 overflow-hidden rounded-full border-avatar border-solid ${borderColorClass} bg-spanishGreen`}
       >
         {content}
       </div>

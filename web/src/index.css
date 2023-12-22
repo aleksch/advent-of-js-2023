@@ -16,3 +16,19 @@
 body {
   background-color: theme(colors.silverTree)
 }
+
+@layer base {
+
+}
+
+@layer components {
+  .avatar-status {
+    @apply absolute bottom-0 right-0 flex h-6 w-6 items-center justify-center rounded-full border-[2px] border-solid border-white
+  }
+}
+
+@layer utilities {
+  .center {
+    @apply flex justify-center items-center
+  }
+}

@@ -34,9 +34,7 @@ const AvatarStatus = ({ status }: Props) => {
   const { backgroundColorStyle, iconColor, iconName } = statusMap[status]
 
   return (
-    <div
-      className={`absolute bottom-0 right-0 flex h-6 w-6 items-center justify-center rounded-full border-[2px] border-solid border-white ${backgroundColorStyle}`}
-    >
+    <div className={`avatar-status ${backgroundColorStyle}`}>
       <Icon name={iconName} size="xs" color={iconColor} />
     </div>
   )
