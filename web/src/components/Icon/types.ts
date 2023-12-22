@@ -1,6 +1,6 @@
-import { Colors } from '../../../config/tailwind.config'
+import { Colors } from '../../../config/tailwind-colors'
 
-export type IconNames =
+export type IconName =
   | 'calendar'
   | 'check'
   | 'chevron'
@@ -17,12 +17,6 @@ export type IconNames =
   | 'upload'
   | 'user'
 
-export type IconSize =
-  | 'xs'
-  | 's'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'auto'
+export type IconSize = 'xs' | 's' | 'md' | 'lg' | 'xl' | 'auto'
 
 export type IconColor = Colors

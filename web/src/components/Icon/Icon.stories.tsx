@@ -13,18 +13,18 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import Icon from './Icon'
-import { IconNames } from './types'
+import { IconName } from './types'
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
-  tags: ['autodocs']
+  tags: ['autodocs'],
 }
 
 export default meta
 
 type Story = StoryObj<typeof Icon>
 
-const iconNames: IconNames[] = [
+const iconNames: IconName[] = [
   'calendar',
   'check',
   'chevron',
@@ -57,7 +57,7 @@ export const Primary: Story = {
       <div className="flex flex-col gap-2">
         {iconNames.map((name) => (
           <div key={name} className="flex items-center gap-2">
-            <Icon size={size} color={color} name={name as IconNames} />
+            <Icon size={size} color={color} name={name as IconName} />
             {name}
           </div>
         ))}

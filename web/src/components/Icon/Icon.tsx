@@ -1,4 +1,4 @@
-import { IconColor, IconNames, IconSize } from './types'
+import { IconColor, IconName, IconSize } from './types'
 
 export const IconSizeMap: Record<IconSize, string> = {
   xs: 'w-4 h-4 min-w-4 min-h-4',
@@ -10,12 +10,12 @@ export const IconSizeMap: Record<IconSize, string> = {
 }
 
 type Props = {
-  name: IconNames
+  name: IconName
   size?: IconSize
   color?: IconColor
 }
 
-const Icon = ({ name, color, size = 'md' }: Props) => {
+const Icon = ({ name, color = 'white', size = 'md' }: Props) => {
   const sizeClass = IconSizeMap[size]
   const textColor = color ? `text-${color}` : ''
 

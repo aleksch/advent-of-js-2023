@@ -1,5 +1,3 @@
-import type { Config } from 'tailwindcss'
-
 const colors = {
   supernova: '#fac900' /* yellow / warning */,
   spicyMustard: '#6e5a0d' /* dark yellow */,
@@ -19,29 +17,8 @@ const colors = {
   pastelMagenta: '#ff9dbf' /* pink */,
   padua: '#b1e3cc' /* lightest green - placeholder color */,
   vistaBlue: '#94d1b4' /* light green - placeholder color */,
+  white: '#fff',
+  black: '#000',
 } as const
 
 export type Colors = keyof typeof colors
-
-const config: Config = {
-  content: ['src/**/*.{js,jsx,ts,tsx}'],
-  theme: {
-    extend: {
-      colors
-    },
-  },
-  plugins: [],
-  purge: {
-    content: ['src/**/*.{js,jsx,ts,tsx}'],
-    // for correct work icon change color in storybook
-    safelist: Object.keys(colors).map((color) => `text-${color}`),
-  },
-  fontFamily: {
-    condensed: ['Bebas Neue', 'sans-serif'],
-    handwriting: ['Kalam', 'cursive'],
-    sans: ['Inter', 'sans-serif'],
-    script: ['Agbalumo', 'cursive'],
-  },
-}
-
-export default config
