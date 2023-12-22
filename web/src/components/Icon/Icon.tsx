@@ -17,7 +17,7 @@ type Props = {
 
 const Icon = ({ name, color = 'white', size = 'md' }: Props) => {
   const sizeClass = IconSizeMap[size]
-  const textColor = color ? `text-${color}` : ''
+  const textColor = `text-${color}`
 
   return (
     <svg width={24} height={24} className={`${sizeClass} ${textColor}`}>
