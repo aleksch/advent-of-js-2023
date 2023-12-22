@@ -25,6 +25,13 @@ body {
   .avatar-status {
     @apply absolute bottom-0 right-0 flex h-6 w-6 items-center justify-center rounded-full border-[2px] border-solid border-white
   }
+
+  .input-field input:not(:placeholder-shown) + label, .input-field input:focus + label {
+    @apply text-xl top-[5px] transition-all text-spanishGreen
+  }
+  .input-field input:not(:placeholder-shown):invalid {
+    background: red;
+  }
 }
 
 @layer utilities {
